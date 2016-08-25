@@ -8,28 +8,23 @@ using System.Threading.Tasks;
 
 namespace GenericClassesTasks
 {
-    public class NumbersInAnArray<T> : IEnumerable<T>
+    public class NumbersInAnArray<T> : IEnumerable<T> where T : struct
     {
         public T[] innerArray;
         T value;
         int indexNumber;
         string arrayString;
-        public int real;
-        public int imaginary;
-        public string listString;
+        public T real;
+        public T imaginary;        
+        public List<string> listString;
 
-        public NumbersInAnArray(int real, int imaginary)
+        public NumbersInAnArray(T List1, T List2)
         {
+            real = List1;
+            imaginary = List2;
             indexNumber = 0;
             innerArray = new T[indexNumber];
-            this.real = real;
-            this.imaginary = imaginary;
-
-            
         }
-        
-
-        
         public void Add(T addToArray)
         {
             T[] newArray = new T[indexNumber + 1];
@@ -58,6 +53,7 @@ namespace GenericClassesTasks
         IEnumerator IEnumerable.GetEnumerator()
         {
             return ((IEnumerable<T>)innerArray).GetEnumerator();
+            
         }
 
 
@@ -75,50 +71,49 @@ namespace GenericClassesTasks
         public override string ToString()
         {
 
-            foreach (T number in innerArray)
+            string arrayString = "";
+            foreach (T item in innerArray)
             {
                 
-                arrayString = string.Format("{0}", number);
-                Console.Write(arrayString);
+                arrayString += " " + item.ToString();
                 
-                
+
             }
-            Console.ReadLine();
-            //listString = string.Format("{0}{1}", real, imaginary);
-            Console.Write(string.Format("{0}{1}", real, imaginary));
-            Console.ReadLine();
+
+            Console.Write(arrayString);
+ 
+   
             return arrayString;
 
-            
+
         }
-            
-         public static NumbersInAnArray<T> operator +( NumbersInAnArray<T> List1, NumbersInAnArray<T> List2)
+
+        public static NumbersInAnArray<T> operator +(NumbersInAnArray<T> List1, NumbersInAnArray<T> List2)
         {
-            return new NumbersInAnArray<T>(List1.real + List2.real, List1.imaginary + List2.imaginary);
-        } 
-
-        
-
+            dynamic firstList = List1.innerArray;
+            dynamic SecondList = List2.innerArray;
+            return new NumbersInAnArray<T>(firstList.real + SecondList.real, firstList.imaginary + SecondList.imaginary);
+            
         }
+        
+    //public void Add(T addToArray)
+    //{
+    //    T[] newArray = new T[indexNumber + 1];
+    //    for (int i = 0; i < indexNumber; i++)
+    //    {
+    //        newArray[i] = innerArray[i];
+
+    //    }
+    //    newArray[indexNumber] = addToArray;
+    //    innerArray = newArray;
+    //    indexNumber++;
+
+
+    //}
+
+}
             
 
 
         }
-        //public void Add(T addToArray)
-        //{
-        //    T[] newArray = new T[indexNumber + 1];
-        //    for (int i = 0; i < indexNumber; i++)
-        //    {
-        //        newArray[i] = innerArray[i];
-
-        //    }
-        //    newArray[indexNumber] = addToArray;
-        //    innerArray = newArray;
-        //    indexNumber++;
-
-
-        //}
-
-
-    
-
+        
