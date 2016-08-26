@@ -10,9 +10,6 @@ namespace GenericClassesTasks
     {
         static void Main(string[] args)
         {
-            //List<int> baseCase = new List<int>() { 1, 2, 3 };
-            //baseCase.Add(5);
-            //baseCase.Add(6);
             NumbersInAnArray<int> TestingArrayClass = new NumbersInAnArray<int>();
             NumbersInAnArray<int> NewTestingArrayClass = new NumbersInAnArray<int>();
             NumbersInAnArray<int> NewList = new NumbersInAnArray<int>();
@@ -20,19 +17,20 @@ namespace GenericClassesTasks
             TestingArrayClass.Add(1);
             TestingArrayClass.Add(2);
             TestingArrayClass.Add(3);
-            NewTestingArrayClass.Add(4);
-            NewTestingArrayClass.Add(5);
-            TestingArrayClass.RemoveAt(1);
             foreach (int numberInArray in TestingArrayClass)
             {
                 Console.WriteLine(numberInArray);
                                                  
             }
+            Console.ReadLine();
+            NewTestingArrayClass.Add(4);
+            NewTestingArrayClass.Add(5);
             foreach (int numberInArray in NewTestingArrayClass)
             {
                 Console.WriteLine(numberInArray);
 
             }
+            TestingArrayClass.RemoveAt(1);
             TestingArrayClass.ToString();
             NewTestingArrayClass.ToString();
             Console.ReadLine();
