@@ -18,10 +18,9 @@ namespace GenericClassesTasks
         public T imaginary;        
         public List<string> listString;
 
-        public NumbersInAnArray(T List1, T List2)
+        public NumbersInAnArray()
         {
-            real = List1;
-            imaginary = List2;
+            
             indexNumber = 0;
             innerArray = new T[indexNumber];
         }
@@ -87,33 +86,95 @@ namespace GenericClassesTasks
 
 
         }
-
-        public static NumbersInAnArray<T> operator +(NumbersInAnArray<T> List1, NumbersInAnArray<T> List2)
-        {
-            dynamic firstList = List1.innerArray;
-            dynamic SecondList = List2.innerArray;
-            return new NumbersInAnArray<T>(firstList.real + SecondList.real, firstList.imaginary + SecondList.imaginary);
-            
-        }
         
-    //public void Add(T addToArray)
-    //{
-    //    T[] newArray = new T[indexNumber + 1];
-    //    for (int i = 0; i < indexNumber; i++)
-    //    {
-    //        newArray[i] = innerArray[i];
 
-    //    }
-    //    newArray[indexNumber] = addToArray;
-    //    innerArray = newArray;
-    //    indexNumber++;
+        public static NumbersInAnArray<T> operator +(NumbersInAnArray<T> List1, NumbersInAnArray<T> List2)    
+        {
+            int i = 0;
+                        
+            NumbersInAnArray<T> List3 = new NumbersInAnArray<T>();
+            
+            foreach(T Item in List1.innerArray)
+            {
+                List3.Add(Item);
+                
+
+            }
+            foreach (T item1 in List2.innerArray)
+            {
+                List3.Add(item1);
+                
+            }
 
 
-    //}
+            
 
-}
+            return List3;
+        }
+
+        public static NumbersInAnArray<T> operator -(NumbersInAnArray<T> List1, NumbersInAnArray<T> List2)
+        {
+
+            int i = 0;
+            NumbersInAnArray<T> List3 = List1 + List2;
+
+            foreach(T item in List2.innerArray)
+            {
+                List3.RemoveAt(List2.innerArray.Length); 
+            }
+
+
+
+
+            return List3;
+        }
+
+
+        public void ZipLists(NumbersInAnArray<T> List1, NumbersInAnArray<T> List2)
+        {
+
             
 
 
+
+
+            foreach (var item in List1.innerArray.Zip(List2.innerArray, Tuple.Create))
+            {
+                Console.WriteLine(item.Item1 + "" + item.Item2);
+            }
+
+            
+
         }
+
+        public int Count
+        {
+            get
+            {
+                return indexNumber;
+            }
+            private set
+            {
+            }
+            
+        }
+        //public void Add(T addToArray)
+        //{
+        //    T[] newArray = new T[indexNumber + 1];
+        //    for (int i = 0; i < indexNumber; i++)
+        //    {
+        //        newArray[i] = innerArray[i];
+
+        //    }
+        //    newArray[indexNumber] = addToArray;
+        //    innerArray = newArray;
+        //    indexNumber++;
+
+
+
+    }
+
+
+
+    }
         

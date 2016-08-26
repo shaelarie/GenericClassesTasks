@@ -13,31 +13,52 @@ namespace GenericClassesTasks
             //List<int> baseCase = new List<int>() { 1, 2, 3 };
             //baseCase.Add(5);
             //baseCase.Add(6);
-            NumbersInAnArray<int> TestingArrayClass = new NumbersInAnArray<int>(1, 2);
-            NumbersInAnArray<int> NewTestingArrayClass = new NumbersInAnArray<int>(1, 2);
+            NumbersInAnArray<int> TestingArrayClass = new NumbersInAnArray<int>();
+            NumbersInAnArray<int> NewTestingArrayClass = new NumbersInAnArray<int>();
+            NumbersInAnArray<int> NewList = new NumbersInAnArray<int>();
             
             TestingArrayClass.Add(1);
             TestingArrayClass.Add(2);
             TestingArrayClass.Add(3);
             NewTestingArrayClass.Add(4);
             NewTestingArrayClass.Add(5);
-            //TestingArrayClass.RemoveAt(1);
+            TestingArrayClass.RemoveAt(1);
             foreach (int numberInArray in TestingArrayClass)
             {
                 Console.WriteLine(numberInArray);
                                                  
             }
+            foreach (int numberInArray in NewTestingArrayClass)
+            {
+                Console.WriteLine(numberInArray);
 
-            //NumbersInAnArray<int> newList = new NumbersInAnArray<int>(1, 3);
-            //NumbersInAnArray<int> newList2 = new NumbersInAnArray<int>(0, 0);
+            }
             TestingArrayClass.ToString();
             NewTestingArrayClass.ToString();
-            NumbersInAnArray<int> NewList = TestingArrayClass + NewTestingArrayClass;
-            Console.Write(NewList);
             Console.ReadLine();
-            //Console.WriteLine("{0}{1}", newList, newList2);
+            NewList = TestingArrayClass + NewTestingArrayClass;
+            
+            foreach (int items in NewList)
+            {
+                Console.WriteLine(items);
+                
+            }
             Console.ReadLine();
+            NewList = TestingArrayClass - NewTestingArrayClass;
+            foreach (int items in NewList)
+            {
+                Console.WriteLine(items);
+
+            }
+            Console.ReadLine();
+            NewList.ZipLists(TestingArrayClass, NewTestingArrayClass);
+            
+
+            Console.ReadLine();
+            
         }
+
+
 
 
     }
