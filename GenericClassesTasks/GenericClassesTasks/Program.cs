@@ -17,6 +17,9 @@ namespace GenericClassesTasks
             TestingArrayClass.Add(1);
             TestingArrayClass.Add(2);
             TestingArrayClass.Add(3);
+            TestingArrayClass.Add(8);
+            TestingArrayClass.Add(20);
+            TestingArrayClass.Add(16);
             foreach (int numberInArray in TestingArrayClass)
             {
                 Console.WriteLine(numberInArray);
@@ -34,6 +37,7 @@ namespace GenericClassesTasks
             TestingArrayClass.ToString();
             NewTestingArrayClass.ToString();
             Console.ReadLine();
+            TestingArrayClass.Sort();
             NewList = TestingArrayClass + NewTestingArrayClass;
             
             foreach (int items in NewList)
@@ -50,10 +54,8 @@ namespace GenericClassesTasks
             }
             Console.ReadLine();
             NewList.ZipLists(TestingArrayClass, NewTestingArrayClass);
-            
-
             Console.ReadLine();
-            
+             
         }
 
 

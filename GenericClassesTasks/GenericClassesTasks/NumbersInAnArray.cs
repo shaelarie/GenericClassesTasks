@@ -121,6 +121,21 @@ namespace GenericClassesTasks
             }
             
         }
+
+        public void Sort()
+        {
+            T[] newList = new T[innerArray.Length];
+            for(int i = 0; i < innerArray.Length; i++)
+            {
+                newList[i] = innerArray[i];
+            }
+            Array.Sort(newList);
+            foreach(T item in newList)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
+        }
         
     }
  }
