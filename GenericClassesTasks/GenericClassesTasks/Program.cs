@@ -14,6 +14,7 @@ namespace GenericClassesTasks
             NumbersInAnArray<int> NewTestingArrayClass = new NumbersInAnArray<int>();
             NumbersInAnArray<int> NewList = new NumbersInAnArray<int>();
             
+            
             TestingArrayClass.Add(1);
             TestingArrayClass.Add(2);
             TestingArrayClass.Add(3);
@@ -28,6 +29,13 @@ namespace GenericClassesTasks
             Console.ReadLine();
             NewTestingArrayClass.Add(4);
             NewTestingArrayClass.Add(5);
+            NewTestingArrayClass.Add(6);
+            NewTestingArrayClass.Add(4);
+            NewTestingArrayClass.Add(5);
+            NewTestingArrayClass.Add(6);
+            NewTestingArrayClass.Add(4);
+            NewTestingArrayClass.Add(5);
+            NewTestingArrayClass.Add(6);
             foreach (int numberInArray in NewTestingArrayClass)
             {
                 Console.WriteLine(numberInArray);
@@ -55,7 +63,8 @@ namespace GenericClassesTasks
             Console.ReadLine();
             NewList.ZipLists(TestingArrayClass, NewTestingArrayClass);
             Console.ReadLine();
-             
+
+                        
         }
 
 

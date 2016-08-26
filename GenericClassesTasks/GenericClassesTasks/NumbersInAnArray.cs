@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GenericClassesTasks
 {
-    public class NumbersInAnArray<T> : IEnumerable<T> where T : struct
+    public class NumbersInAnArray<T> : IEnumerable<T>
     {
         public T[] innerArray;
         int indexNumber;
@@ -92,23 +92,54 @@ namespace GenericClassesTasks
         {
 
             int i = 0;
-            NumbersInAnArray<T> List3 = List1 + List2;
 
-            foreach(T item in List2.innerArray)
-            {
-                List3.RemoveAt(List2.innerArray.Length); 
-            }
+            NumbersInAnArray<T> List3 = List1 + List2;
+            
+                foreach (T item in List2.innerArray)
+                {
+                    List3.RemoveAt(i + List1.innerArray.Length + 1);
+                }
+        
             return List3;
         }
 
 
         public void ZipLists(NumbersInAnArray<T> List1, NumbersInAnArray<T> List2)
         {
-            foreach (var item in List1.innerArray.Zip(List2.innerArray, Tuple.Create))
+              
+            
+            
+                
+                
+            if (List1.innerArray.Length > List2.innerArray.Length)
             {
-                Console.WriteLine(item.Item1 + "" + item.Item2);
+                for (int i = 0; i < List2.innerArray.Length; i++)
+                {
+                    Console.WriteLine("{0}    {1}", List1.innerArray[i], List2.innerArray[i]);
+
+                }
+                for (int i = List2.innerArray.Length; i < List1.innerArray.Length; i++)
+                {
+                    Console.WriteLine("     {0}", List1.innerArray[i]);
+
+                }
+
             }
-         }
+            else if (List1.innerArray.Length < List2.innerArray.Length)
+            {
+                for (int i = 0; i < List1.innerArray.Length; i++)
+                {
+                    Console.WriteLine("{0}    {1}", List1.innerArray[i], List2.innerArray[i]);
+
+                }
+                for (int i = List1.innerArray.Length; i < List2.innerArray.Length; i++)
+                {
+                    Console.WriteLine("     {0}",  List2.innerArray[i]);
+
+                }
+
+            }
+        }
 
         public int Count
         {
